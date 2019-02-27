@@ -100,4 +100,4 @@ function main(title) {
   });
 }
 
-main('Dutch Golden Age painting')
+main(process.argv[1])
