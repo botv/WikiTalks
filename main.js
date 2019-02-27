@@ -1,12 +1,13 @@
 const videoshow = require('videoshow');
 const mp3Duration = require('mp3-duration');
 const wiki = require('wikijs').default;
-const download = require('image-downloader')
+const download = require('image-downloader');
 const fs = require('fs');
 const textToSpeech = require('@google-cloud/text-to-speech');
 const util = require('util');
 const dotenv = require('dotenv');
-const path = require('path')
+const path = require('path');
+const readline = require('readline');
 
 dotenv.config()
 
@@ -81,6 +82,18 @@ function createVideo(imagePath, audioPath, outputPath) {
   });
 }
 
+function takeUserInput(prompt, callback) {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  rl.question(prompt, (answer) => {
+    callback(answer)
+    rl.close();
+  });
+}
+
 function main(title) {
   fs.mkdirSync(`./files/${title}`)
   getWikiImage(title, imageURL => {
@@ -100,4 +113,6 @@ function main(title) {
   });
 }
 
-main(process.argv[1])
+takeUserInput('Enter a Wikipedia article title: ', (title) => {
+  main(title)
+})
