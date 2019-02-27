@@ -1,0 +1,20 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "node main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/text-to-speech": "^0.5.1",
+    "dotenv": "^6.2.0",
+    "image-downloader": "^3.4.2",
+    "mp3-duration": "^1.1.0",
+    "videoshow": "^0.1.11",
+    "wikijs": "^4.13.0"
+  }
+}
